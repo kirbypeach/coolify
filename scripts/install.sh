@@ -556,7 +556,7 @@ echo -e "\033[0;35m
                    |___/
 \033[0m"
 echo -e "\nYour instance is ready to use!\n"
-echo -e "You can access Coolify through your Public IP: http://$(curl -4s https://ifconfig.io):8000"
+echo -e "You can access Coolify through your Public IP: http://$(curl -4s https://ifconfig.io):8100"
 
 set +e
 DEFAULT_PRIVATE_IP=$(ip route get 1 | sed -n 's/^.*src \([0-9.]*\) .*$/\1/p')
@@ -567,7 +567,7 @@ if [ -n "$PRIVATE_IPS" ]; then
     echo -e "\nIf your Public IP is not accessible, you can use the following Private IPs:\n"
     for IP in $PRIVATE_IPS; do
         if [ "$IP" != "$DEFAULT_PRIVATE_IP" ]; then
-            echo -e "http://$IP:8000"
+            echo -e "http://$IP:8100"
         fi
     done
 fi
